@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" th:href="@{../css/styles.css}">
+    <!-- Link your CSS file here if needed -->
+    <link rel="stylesheet" href="path/to/your/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="message" th:if="${message != null}">
+            [[${message}]]
+        </div>
+        <h2>Registration Form</h2>
+        <form th:action="@{/registration}" method="post" role="form" th:object="${user}">
+            <div class="form-group">
+                <label for="fullname">Name:</label>
+                <input th:field="*{name}" type="text" id="name" name="name" placeholder="Enter your Name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input th:field="*{email}" type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contact:</label>
+                <input th:field="*{contact}" type="text" id="contact" name="contact" placeholder="Enter your Contact" required>
+            </div>
+            <div class="form-group">
+                <label for="password">BloodType</label>
+                <input th:field="*{bloodType}" type="text" id="bloodType" name="bloodType" placeholder="Enter your BloodType" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Address</label>
+                <input th:field="*{address}" type="text" id="address" name="address" placeholder="Enter your Address" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Area</label>
+                <input th:field="*{area}" type="text" id="area" name="area" placeholder="Enter your Area" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input th:field="*{password}" type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            
+            <!-- Hidden field for the role with the default value "USER" -->
+            <input th:field="*{role}" type="hidden" id="role" value="USER">
+            
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>
